@@ -1,16 +1,13 @@
+import posts from "../data/posts";
+import PostCard from "./PostCard";
 export default function AppMain() {
+    const postsPublic = posts.filter(post => post.published === true)
+    console.log(postsPublic);
+
     return (
+
         <main>
-            <div className="card">
-                <div className="img">
-                    600x400
-                </div>
-                <div className="cardText">
-                    <h3>Titolo del Post</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti facere ducimus animi cupiditate rerum magnam est iste incidunt porro illo fugit accusantium sit provident, rem cumque consectetur, explicabo, velit quod. Repellat ipsa, debitis animi et ut numquam alias sapiente modi aliquid id beatae quidem, fugiat ullam, velit minima veritatis ex.</p>
-                    <button>Leggi di piu</button>
-                </div>
-            </div>
+            {postsPublic.map((post, index) => <PostCard key={index} title={post.title} image={post.image} content={post.content} tags={post.tags} />)}
         </main>
     )
 }
