@@ -1,16 +1,18 @@
+import js from "@eslint/js";
+
 export default function PostCard(props) {
     console.log(props);
-
 
     return (
         <div className="card">
             <div className="img">
-                600x400
+                <img src={props.image} alt="" />
             </div>
             <div className="cardText">
-                <h3>Titolo del Post</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti facere ducimus animi cupiditate rerum magnam est iste incidunt porro illo fugit accusantium sit provident, rem cumque consectetur, explicabo, velit quod. Repellat ipsa, debitis animi et ut numquam alias sapiente modi aliquid id beatae quidem, fugiat ullam, velit minima veritatis ex.</p>
-                <button>Leggi di piu</button>
+                <h3>{props.title}</h3>
+                <p>{props.content}</p>
+                <button className={props.tags[0]}>{props.tags[0]}</button>
+                <button className={props.tags[1]}>{props.tags[1]}</button>
             </div>
         </div>
     )
